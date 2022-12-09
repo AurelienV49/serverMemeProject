@@ -1,0 +1,20 @@
+{
+  "args": {},
+  "data": "",
+  "files": {},
+  "form": {
+    "id": "999",
+    "value": "content"
+  },
+  "headers": {
+    "Accept-Encoding": "br,deflate,gzip,x-gzip",
+    "Content-Length": "20",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Host": "httpbin.org",
+    "User-Agent": "Apache-HttpClient/4.5.13 (Java/17.0.5)",
+    "X-Amzn-Trace-Id": "Root=1-6391bcaf-0d410bbd34c7d0c273228ca9"
+  },
+  "json": null,
+  "origin": "91.163.64.100",
+  "url": "https://httpbin.org/post"
+}

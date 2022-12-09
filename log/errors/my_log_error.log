@@ -1,0 +1,18 @@
+2022-12-08T17:56:58.019Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T17:56:58.034Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T17:57:59.105Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T17:57:59.119Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T17:58:16.550Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T17:58:16.565Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T17:58:40.749Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T17:58:40.763Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T17:59:02.724Z [Debug Aurélien] e: Echec: UNAUTHORIZED 1 : un user a voulu s'enregistrer avec l'email : aurel104@ynov.com
+2022-12-08T18:00:03.721Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T18:00:03.735Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T18:00:55.193Z [Debug Aurélien] e: Echec: UNAUTHORIZED 1 : un user a voulu s'enregistrer avec l'email : aurel104@ynov.com
+2022-12-08T18:02:21.861Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T18:02:21.878Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T18:03:05.166Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T18:03:05.181Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2022-12-08T18:03:26.646Z [Debug Aurélien] e: Echec décodage du token
+2022-12-08T18:03:26.662Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2

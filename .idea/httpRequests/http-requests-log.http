@@ -1,0 +1,172 @@
+POST http://localhost:3000/api/objects
+Content-Type: application/json
+Content-Length: 197
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "Un objet 2",
+  "weight": 123456789,
+  "url": "https://12bnbn,34.jpg",
+  "creationDate": "2022-11-17T09:47:35.159Z",
+  "modificationDate": "2022-11-17T09:47:35.159Z",
+  "active": true
+}
+
+<> 2022-12-08T114024.200.json
+
+###
+
+POST http://localhost:3000/api/objects
+Content-Type: application/json
+Content-Length: 53
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "aurel@ynov.com",
+  "password": "1234"
+}
+
+<> 2022-12-08T113108.500.json
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+Content-Length: 106
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": 1d5a9aa5-6137-4d6f-a960-55b34b0db864,
+  "price": 903,
+  "ts": 1670495409,
+  "value": "content"
+}
+
+<> 2022-12-08T113009-1.200.json
+
+###
+
+POST https://httpbin.org/post
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Content-Length: 360
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+--WebAppBoundary
+Content-Disposition: form-data; name="element-name"
+Content-Type: text/plain
+
+Name
+--WebAppBoundary
+Content-Disposition: form-data; name="data"; filename="data.json"
+Content-Type: application/json
+
+< C:\Users\HomeAureliePiwi\AppData\Local\Temp\http_request_input_file.txt
+--WebAppBoundary--
+
+<> 2022-12-08T113009.200.json
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 20
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+id=999&value=content
+
+<> 2022-12-08T113008.200.json
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+Content-Length: 37
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2022-12-08T113007.200.json
+
+###
+
+POST http://localhost:3000/api/objects
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112937.500.json
+
+###
+
+GET http://httpbin.org/anything?id=aae110be-cc82-4659-b8de-8ebfb73f779d&ts=1670495343
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112903-1.200.json
+
+###
+
+# @no-redirect
+GET http://httpbin.org/status/301
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET https://httpbin.org/get?show_env=1
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112903.200.json
+
+###
+
+GET https://httpbin.org/get?show_env=1
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112902-1.200.json
+
+###
+
+GET https://httpbin.org/ip
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112902.200.json
+
+###
+
+GET http://localhost:3000/api/objects
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2022-12-08T112750.403.json
+
+###
+
