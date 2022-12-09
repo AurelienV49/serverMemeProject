@@ -4,8 +4,8 @@ const helmet = require('helmet'); // Configure HTTP Headers
 const bodyParser = require('body-parser'); // Parse the body in an object req.body
 const mongoose = require('mongoose'); // Database
 const compression = require('compression'); // Compression for quick server response
-const winston = require('winston');
 const l = require('./log/main_logger');
+const PORT = require('./index');
 //endregion
 
 // region Express
@@ -22,17 +22,16 @@ app.use((req, res, next) => {
 });
 
 // ID et pw à cacher dans des variables d'environnement
-console.log('process.env.DB_ID', process.env.DB_ID);
-console.log('process.env.DB_PW', process.env.DB_PW);
+if (process.env.NODE_ENV !== 'production') {
+    console.log('process.env.DB_ID', process.env.DB_ID);
+    console.log('process.env.DB_PW', process.env.DB_PW);
+}
 
-// node index.js Aurelien49 Auto012022
-console.log('process.argv[2]', process.argv[2]);
-console.log('process.argv[3]', process.argv[3]);
+const dbID = process.env.DB_ID || 'Aurelien49';
+const dbPW = process.env.DB_PW || 'Auto012022';
 
-const dbID = process.env.DB_ID || process.argv[2];
-const dbPW = process.env.DB_PW || process.argv[3];
-
-const DB = 'mongodb+srv://' + dbID + ':' + dbPW + '@cluster-memes.ps0ycgy.mongodb.net/?retryWrites=true&w=majority';
+//const DB = 'mongodb+srv://' + dbID + ':' + dbPW + '@cluster-memes.ps0ycgy.mongodb.net/?retryWrites=true&w=majority';
+const DB = 'mongodb+srv://Aurelien49:Auto012022@cluster-memes.ps0ycgy.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('Connected to MongoDB'))
@@ -43,15 +42,14 @@ mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true})
 app.use(bodyParser.json());
 
 // import des routes
-const objectRoutes = require('./routes/object');
-const userRoutes = require('./routes/user');
+const objectRoutes = require('./routes/meme_routes');
+const userRoutes = require('./routes/user_routes');
 
-app.use('/api/objects', objectRoutes);
+app.use('/api/memes', objectRoutes);
 app.use('/api/users', userRoutes);
 app.get('/', function (req, res) {
-    l.i('Le serveur à répondu');
     res.setHeader("Content-type", "text/html; charset=ut-8");
-    res.send("<h1>Le serveur à répondu !</h1>");
+    res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
 });
 // endregion
 

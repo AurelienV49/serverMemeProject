@@ -23,3 +23,6 @@
 2022-12-08T18:03:26.662Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
 2022-12-08T18:04:06.765Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel105@ynov.com
 2022-12-08T18:04:06.790Z [Debug Aurélien] i: deleteUser from undefined
+2022-12-09T14:34:57.576Z [Debug Aurélien] i: Le serveur à répondu
+2022-12-09T15:41:04.204Z [Debug Aurélien] i: Le serveur à répondu et est connecté sur le port [object Object]
+2022-12-09T15:42:33.571Z [Debug Aurélien] i: Le serveur à répondu et est connecté sur le port [object Object]

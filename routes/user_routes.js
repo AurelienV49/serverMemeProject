@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router(); // router intégré au framework
 
 // import des middlewares qui seront appelés avant la méthode finale
-const logger = require('../middlewares/logger');
 const auth = require('../middlewares/auth');
 
 // import des controllers
 // ils contiennent les méthodes vers lesquelles doivent pointer les requêtes
-const objectCtrl = require('../controllers/object');
+const userCtrl = require('../controllers/user_controller');
 
 // routes CRUD disponibles
-router.get('/', [auth, logger], objectCtrl.getObjectList);
-router.get('/:id', [logger, auth], objectCtrl.getObject);
-router.post('/', [logger], objectCtrl.createObject);
-router.put('/:id', [], objectCtrl.updateObject);
-router.delete('/:id', logger, objectCtrl.deleteObject);
+router.get('/', [auth], userCtrl.getUserList);
+router.get('/:id', [auth], userCtrl.getUser);
+router.post('/signup', userCtrl.createUser);
+router.post('/login', userCtrl.login);
+router.put('/:id', [auth], userCtrl.updateUser);
+router.delete('/:id', [auth], userCtrl.deleteUser);
 
 module.exports = router;

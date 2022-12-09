@@ -31,8 +31,4 @@ const l = winston.createLogger({
     ],
 });
 
-// if (process.env.NODE_ENV !== 'production') {
-// l.e('Enregistré dans le fichier error');
-// l.d('Enregistré dans le fichier info');
-
 module.exports = l;
