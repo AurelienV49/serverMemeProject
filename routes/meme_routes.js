@@ -10,7 +10,7 @@ const objectCtrl = require('../controllers/meme_controller');
 
 // routes CRUD disponibles
 router.get('/bdduser/:id', objectCtrl.getMeme);
-router.get('/bdduser/', objectCtrl.getMemesFromBddUser);
+router.get('/memes-user-history/', objectCtrl.getMemesUserHistory);
 router.get('/imgflip/', objectCtrl.getMemesFromImgFlip);
 router.post('/createMeme/', objectCtrl.createMeme);
 router.put('/updateMemeBdduser/:id', objectCtrl.updateMeme);

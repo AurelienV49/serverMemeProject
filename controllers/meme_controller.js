@@ -13,8 +13,8 @@ exports.getMeme = (req, res, next) => {
         })
 }
 
-exports.getMemesFromBddUser = (req, res, next) => {
-    console.log('getMemesFromBddUser: ');
+exports.getMemesUserHistory = (req, res, next) => {
+    console.log('getMemesUserHistory: ');
 
     CreateMemeModel.find()
         .then((list) => {
@@ -45,39 +45,42 @@ exports.getMemesFromImgFlip = (req, res, next) => {
 }
 
 exports.createMeme = (req, res, next) => {
-    console.log('server: body: createMeme: ', req.body.urlToCreateMeme);
+    let req_body = req.body;
 
-    // Récupère les données de création du mème à créer
-    fetch(req.body.urlToCreateMeme)
-        .then(response => response.json())
+    fetch(req_body.data.urlToGenerateMeme)
+        .then(response =>
+            response.json()
+        )
+        .then(data =>
+            data['data']
+        )
         .then(data => {
-                let _urlNewMeme = data['data']['url'];
-
-                console.log('\nserver: ----------------- _urlNewMeme : ', _urlNewMeme)
-
-                return _urlNewMeme;
-            }
-        ).then(data => {
-            // Save in database the data of the new meme
-            let _createMemeModel = new CreateMemeModel({
-                idUser: "1234",
-                url: data,
-                creationDate: new Date(),
-                modificationDate: new Date()
-            })
-
-            _createMemeModel.save()
-                .then((saved) => {
-                    res.status(200).json(saved)
+                // And then, save typed meme into database
+                let _createMemeModelToSave = new CreateMemeModel({
+                    idUser: "1234",
+                    urlToRetriveMeme: data['url'],
+                    creationDate: new Date(),
+                    modificationDate: new Date(),
+                    movie_id: req_body.data.movie_id,
+                    movie_name: req_body.data.movie_name,
+                    movie_width: req_body.data.movie_width,
+                    movie_height: req_body.data.movie_height,
+                    movie_box_count: req_body.data.movie_box_count,
+                    movie_captions: req_body.data.movie_captions,
+                    urlToGenerateMeme: req_body.data.urlToGenerateMeme,
+                    commentBoxes: req_body.data.commentBoxes,
                 })
-                .catch(() => {
-                    res.status(500).json({
-                        message: 'API REST ERROR: problème' +
-                            ' à la sauvegarde en base du mème'
+                _createMemeModelToSave.save()
+                    .then((saved) => {
+                        res.status(200).json(saved)
                     })
-                })
-        }
-    )
+                    .catch(() => {
+                        res.status(500).json({
+                            message: 'message du serveur: problème à la sauvegarde en base du mème'
+                        })
+                    })
+            }
+        )
         .catch(err => {
                 console.error(err);
             }
