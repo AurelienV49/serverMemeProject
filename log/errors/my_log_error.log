@@ -16,3 +16,9 @@
 2022-12-08T18:03:05.181Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
 2022-12-08T18:03:26.646Z [Debug Aurélien] e: Echec décodage du token
 2022-12-08T18:03:26.662Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-05T12:23:41.293Z [Debug Aurélien] e: createUser/save from : API REST ERROR: Pb avec la creation
+2023-01-05T12:23:44.506Z [Debug Aurélien] e: createUser/save from wq: API REST ERROR: Pb avec la creation
+2023-01-05T12:23:50.286Z [Debug Aurélien] e: createUser/save from qww: API REST ERROR: Pb avec la creation
+2023-01-05T12:32:42.400Z [Debug Aurélien] e: createUser/save from : API REST ERROR: Pb avec la creation
+2023-01-05T12:46:03.687Z [Debug Aurélien] e: login from aurel105@ynov.com: USER RESULT NULL
+2023-01-05T12:46:15.824Z [Debug Aurélien] e: login from aurel1@ynov.com: API REST ERROR: COMPARISON FAILED

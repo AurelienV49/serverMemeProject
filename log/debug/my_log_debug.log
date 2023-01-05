@@ -26,3 +26,32 @@
 2022-12-09T14:34:57.576Z [Debug Aurélien] i: Le serveur à répondu
 2022-12-09T15:41:04.204Z [Debug Aurélien] i: Le serveur à répondu et est connecté sur le port [object Object]
 2022-12-09T15:42:33.571Z [Debug Aurélien] i: Le serveur à répondu et est connecté sur le port [object Object]
+2023-01-05T11:20:24.602Z [Debug Aurélien] i: createUser from aurel105@ynov.com
+2023-01-05T11:20:24.633Z [Debug Aurélien] i: createUser/save from aurel105@ynov.com
+2023-01-05T11:21:52.341Z [Debug Aurélien] i: createUser from aurel100@ynov.com
+2023-01-05T11:21:52.355Z [Debug Aurélien] i: createUser/save from aurel100@ynov.com
+2023-01-05T11:22:48.236Z [Debug Aurélien] i: createUser from aurelien.vaillant49@ynov.com
+2023-01-05T11:22:48.254Z [Debug Aurélien] i: createUser/save from aurelien.vaillant49@ynov.com
+2023-01-05T11:38:18.815Z [Debug Aurélien] i: createUser from aurel8888@ynov.com
+2023-01-05T11:38:18.838Z [Debug Aurélien] i: createUser/save from aurel8888@ynov.com
+2023-01-05T12:23:41.289Z [Debug Aurélien] i: createUser from 
+2023-01-05T12:23:41.293Z [Debug Aurélien] e: createUser/save from : API REST ERROR: Pb avec la creation
+2023-01-05T12:23:44.506Z [Debug Aurélien] i: createUser from wq
+2023-01-05T12:23:44.506Z [Debug Aurélien] e: createUser/save from wq: API REST ERROR: Pb avec la creation
+2023-01-05T12:23:50.285Z [Debug Aurélien] i: createUser from qww
+2023-01-05T12:23:50.286Z [Debug Aurélien] e: createUser/save from qww: API REST ERROR: Pb avec la creation
+2023-01-05T12:32:42.399Z [Debug Aurélien] i: createUser from 
+2023-01-05T12:32:42.400Z [Debug Aurélien] e: createUser/save from : API REST ERROR: Pb avec la creation
+2023-01-05T12:33:58.421Z [Debug Aurélien] i: createUser from xxxx@xxxxx.com
+2023-01-05T12:33:58.565Z [Debug Aurélien] i: createUser/save from xxxx@xxxxx.com
+2023-01-05T12:36:34.766Z [Debug Aurélien] i: createUser from un@deux.com
+2023-01-05T12:36:34.785Z [Debug Aurélien] i: createUser/save from un@deux.com
+2023-01-05T12:37:55.957Z [Debug Aurélien] i: createUser from Zapatta@pinder.com
+2023-01-05T12:37:55.973Z [Debug Aurélien] i: createUser/save from Zapatta@pinder.com
+2023-01-05T12:38:39.332Z [Debug Aurélien] i: createUser from Salut@ecole.pata
+2023-01-05T12:38:39.349Z [Debug Aurélien] i: createUser/save from Salut@ecole.pata
+2023-01-05T12:41:32.476Z [Debug Aurélien] i: createUser from aurel1@ynov.com
+2023-01-05T12:41:32.500Z [Debug Aurélien] i: createUser/save from aurel1@ynov.com
+2023-01-05T12:46:03.687Z [Debug Aurélien] e: login from aurel105@ynov.com: USER RESULT NULL
+2023-01-05T12:46:15.824Z [Debug Aurélien] e: login from aurel1@ynov.com: API REST ERROR: COMPARISON FAILED
+2023-01-05T12:46:29.259Z [Debug Aurélien] i: login from aurel1@ynov.com

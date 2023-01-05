@@ -1,4 +1,9 @@
 const CreateMemeModel = require('../models/create_meme_model');
+const imgModel = require('../models/model');
+const multer = require('multer');
+const express = require("express");
+const cloudinary = require('cloudinary').v2;
+const router = express.Router();
 
 exports.getMeme = (req, res, next) => {
     console.log('getMeme: ', req.params.id);
@@ -35,7 +40,6 @@ exports.getMemesFromImgFlip = (req, res, next) => {
                 this.memes = data['data']['memes'];
                 this.memes.length = 10;
 
-                console.log('this.memes : ', this.memes)
                 res.status(200).json(data)
             }
         ).catch(err => {
@@ -54,37 +58,37 @@ exports.createMeme = (req, res, next) => {
         .then(data =>
             data['data']
         )
-        .then(data => {
+        .then(async data => {
                 // And then, save typed meme into database
                 let _createMemeModelToSave = new CreateMemeModel({
                     idUser: "1234",
                     urlToRetriveMeme: data['url'],
                     creationDate: new Date(),
                     modificationDate: new Date(),
-                    movie_id: req_body.data.movie_id,
-                    movie_name: req_body.data.movie_name,
-                    movie_width: req_body.data.movie_width,
-                    movie_height: req_body.data.movie_height,
-                    movie_box_count: req_body.data.movie_box_count,
-                    movie_captions: req_body.data.movie_captions,
+                    meme_id: req_body.data.meme_id,
+                    meme_name: req_body.data.meme_name,
+                    meme_width: req_body.data.meme_width,
+                    meme_height: req_body.data.meme_height,
+                    meme_box_count: req_body.data.meme_box_count,
+                    meme_captions: req_body.data.meme_captions,
                     urlToGenerateMeme: req_body.data.urlToGenerateMeme,
                     commentBoxes: req_body.data.commentBoxes,
                 })
-                _createMemeModelToSave.save()
-                    .then((saved) => {
-                        res.status(200).json(saved)
+                return await _createMemeModelToSave.save()
+                    .then(async (saved) => {
+                        console.log('Server: record into DB ok : ');
+                        return saved;
                     })
                     .catch(() => {
                         res.status(500).json({
                             message: 'message du serveur: problème à la sauvegarde en base du mème'
                         })
-                    })
+                    });
             }
-        )
-        .catch(err => {
-                console.error(err);
-            }
-        );
+        ).catch(err => {
+            console.error(err);
+        }
+    );
 }
 
 exports.updateMeme = (req, res, next) => {
