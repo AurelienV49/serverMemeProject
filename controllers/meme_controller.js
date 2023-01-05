@@ -51,6 +51,10 @@ exports.getMemesFromImgFlip = (req, res, next) => {
 exports.createMeme = (req, res, next) => {
     let req_body = req.body;
 
+    console.log('<---------------------------------------');
+    console.log('Server: createMeme: ', req_body['data']);
+    console.log(' --------------------------------------->');
+
     fetch(req_body.data.urlToGenerateMeme)
         .then(response =>
             response.json()
@@ -61,7 +65,7 @@ exports.createMeme = (req, res, next) => {
         .then(async data => {
                 // And then, save typed meme into database
                 let _createMemeModelToSave = new CreateMemeModel({
-                    idUser: "1234",
+                    idUser: req_body.data.user_id,
                     urlToRetriveMeme: data['url'],
                     creationDate: new Date(),
                     modificationDate: new Date(),

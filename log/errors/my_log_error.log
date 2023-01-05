@@ -22,3 +22,8 @@
 2023-01-05T12:32:42.400Z [Debug Aurélien] e: createUser/save from : API REST ERROR: Pb avec la creation
 2023-01-05T12:46:03.687Z [Debug Aurélien] e: login from aurel105@ynov.com: USER RESULT NULL
 2023-01-05T12:46:15.824Z [Debug Aurélien] e: login from aurel1@ynov.com: API REST ERROR: COMPARISON FAILED
+2023-01-05T12:56:56.549Z [Debug Aurélien] e: Echec décodage du token
+2023-01-05T12:56:56.573Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-05T16:25:06.155Z [Debug Aurélien] e: login from lechat@ynvo.com: USER RESULT NULL
+2023-01-05T16:25:57.998Z [Debug Aurélien] e: login from toto@tata.com: USER RESULT NULL
+2023-01-05T16:27:38.989Z [Debug Aurélien] e: login from toto@tata.com: USER RESULT NULL

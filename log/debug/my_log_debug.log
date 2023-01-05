@@ -55,3 +55,65 @@
 2023-01-05T12:46:03.687Z [Debug Aurélien] e: login from aurel105@ynov.com: USER RESULT NULL
 2023-01-05T12:46:15.824Z [Debug Aurélien] e: login from aurel1@ynov.com: API REST ERROR: COMPARISON FAILED
 2023-01-05T12:46:29.259Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T12:47:35.644Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T12:49:42.523Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T12:52:30.542Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T12:53:46.447Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T12:56:56.549Z [Debug Aurélien] e: Echec décodage du token
+2023-01-05T12:56:56.573Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-05T12:59:51.118Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:35:14.896Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:35:28.641Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:54:38.593Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:56:52.641Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:58:23.558Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T13:58:52.850Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:00:28.788Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:02:13.662Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:04:37.199Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:05:38.432Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:08:24.858Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:10:19.130Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:11:58.115Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:13:17.391Z [Debug Aurélien] i: createUser from lechat@ynov.com
+2023-01-05T14:13:17.417Z [Debug Aurélien] i: createUser/save from lechat@ynov.com
+2023-01-05T14:13:41.090Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T14:29:50.471Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:30:26.387Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T14:57:36.274Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:05:05.387Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:07:52.348Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:10:26.150Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:12:20.386Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:13:35.750Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:15:27.646Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:16:43.331Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:17:50.502Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:18:37.960Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:57:29.717Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T15:59:21.348Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:00:51.536Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:01:35.004Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:03:35.082Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:07:36.467Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:09:44.515Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:10:29.363Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:12:39.284Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T16:13:26.606Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T16:14:05.836Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:21:15.007Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T16:21:50.497Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T16:25:06.155Z [Debug Aurélien] e: login from lechat@ynvo.com: USER RESULT NULL
+2023-01-05T16:25:57.998Z [Debug Aurélien] e: login from toto@tata.com: USER RESULT NULL
+2023-01-05T16:27:38.989Z [Debug Aurélien] e: login from toto@tata.com: USER RESULT NULL
+2023-01-05T16:29:58.528Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T16:56:45.698Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T17:24:27.350Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:40:32.076Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:43:33.169Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:44:44.702Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:45:33.267Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:46:58.082Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:50:09.167Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-05T17:51:25.187Z [Debug Aurélien] i: login from lechat@ynov.com
+2023-01-05T17:53:03.640Z [Debug Aurélien] i: login from aurel1@ynov.com
