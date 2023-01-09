@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {OAuth2Client} = require('google-auth-library');
 const l = require('../log/main_logger');
+const sgMail = require('@sendgrid/mail');
 
 //
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -162,6 +163,37 @@ exports.login = (req, res, next) => {
                 }
             )
     }
+}
+
+exports.sendpicture = (req, res, next) => {
+
+    console.log(`server: _________________________ sendpicture email: `, req.body.user_email);
+    console.log(`server: _________________________ sendpicture url: `, req.body.url_meme_to_retrive);
+
+    sgMail.setApiKey("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");
+    const msg = {
+        to: req.body.user_email.toString(),
+        from: 'aurelienvaillant@outlook.fr',
+        subject: 'Your wonderfull meme 😎😎😎',
+        text: 'Super cool nodj et la lib',
+        html: `<strong>and easy to do anywhere, even with Node.js</strong> 
+            '<ul>\n 
+              <li><a href=${req.body.url_meme_to_retrive}>My meme</a></li>\n 
+            </ul>
+            <img alt="test" src=${req.body.url_meme_to_retrive}>
+            `,
+    };
+
+    sgMail
+        .send(msg)
+        .then(() => {
+        }, error => {
+            console.error(error);
+
+            if (error.response) {
+                console.error(error.response.body)
+            }
+        });
 }
 
 exports.updateUser = (req, res, next) => {

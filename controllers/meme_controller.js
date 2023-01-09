@@ -1,5 +1,4 @@
 const CreateMemeModel = require('../models/create_meme_model');
-const imgModel = require('../models/model');
 const multer = require('multer');
 const express = require("express");
 const cloudinary = require('cloudinary').v2;
@@ -21,11 +20,13 @@ exports.getMeme = (req, res, next) => {
 exports.getMemesUserHistory = (req, res, next) => {
     console.log('getMemesUserHistory: ');
 
-    CreateMemeModel.find()
+    CreateMemeModel.find({'idUser': req.params.id})
         .then((list) => {
+            console.log('+-*/ server: OK ')
             res.status(200).json(list)
         })
         .catch((err) => {
+            console.log('+-*/ server: erreur ')
             console.log(err);
             res.status(404).json({message: 'NOT FOUND'});
         })
@@ -80,8 +81,22 @@ exports.createMeme = (req, res, next) => {
                 })
                 return await _createMemeModelToSave.save()
                     .then(async (saved) => {
-                        console.log('Server: record into DB ok : ');
-                        return saved;
+                        console.log(`Server: record into DB ok : ${saved}`);
+                        res.status(200).json({
+                            idUser: req_body.data.user_id,
+                            urlToRetriveMeme: data['url'],
+                            creationDate: new Date(),
+                            modificationDate: new Date(),
+                            meme_id: req_body.data.meme_id,
+                            meme_name: req_body.data.meme_name,
+                            meme_width: req_body.data.meme_width,
+                            meme_height: req_body.data.meme_height,
+                            meme_box_count: req_body.data.meme_box_count,
+                            meme_captions: req_body.data.meme_captions,
+                            urlToGenerateMeme: req_body.data.urlToGenerateMeme,
+                            commentBoxes: req_body.data.commentBoxes,
+                        })
+                        // return saved;
                     })
                     .catch(() => {
                         res.status(500).json({

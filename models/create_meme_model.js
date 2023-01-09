@@ -15,4 +15,4 @@ const objectSchema = mongoose.Schema({
     commentBoxes: {type: Object, required: true},
 });
 
-module.exports = mongoose.model('create-meme-model', objectSchema);
+module.exports = mongoose.model('meme-model', objectSchema);
