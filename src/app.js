@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const l = require('./log/main_logger');
-const PORT = require('./index');
+const PORT = require('../index');
 const upload = require("./middlewares/upload");
 
 const app = express();

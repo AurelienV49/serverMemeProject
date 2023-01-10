@@ -183,6 +183,7 @@ exports.sendpicture = (req, res, next) => {
     sgMail
         .send(msg)
         .then(() => {
+            res.status(200).json({message: 'Meme picture send by email'})
         }, error => {
             console.error(error);
 
