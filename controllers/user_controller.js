@@ -166,19 +166,15 @@ exports.login = (req, res, next) => {
 }
 
 exports.sendpicture = (req, res, next) => {
-
-    console.log(`server: _________________________ sendpicture email: `, req.body.user_email);
-    console.log(`server: _________________________ sendpicture url: `, req.body.url_meme_to_retrive);
-
-    sgMail.setApiKey("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");
+    sgMail.setApiKey(process.env.API_KEY_SENDGRID);
     const msg = {
         to: req.body.user_email.toString(),
         from: 'aurelienvaillant@outlook.fr',
         subject: 'Your wonderfull meme 😎😎😎',
-        text: 'Super cool nodj et la lib',
-        html: `<strong>and easy to do anywhere, even with Node.js</strong> 
+        text: 'Super cool nodjs et l\'API SendGrid',
+        html: `<strong>TP Ynov 2022/2023</strong> 
             '<ul>\n 
-              <li><a href=${req.body.url_meme_to_retrive}>My meme</a></li>\n 
+              <li><a href=${req.body.url_meme_to_retrive}>🎏 Click to see your awesome meme 🎨</a></li>\n 
             </ul>
             <img alt="test" src=${req.body.url_meme_to_retrive}>
             `,

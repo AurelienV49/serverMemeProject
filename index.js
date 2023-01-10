@@ -20,4 +20,5 @@ connection()
 
 module.exports.PORT = PORT;
 
-/// TODO : à supprimer : NODE_ENV=_production DB_ID=Aurelien49 DB_PW=Auto012022 PORT=5000 nodemon index
+/// TODO: NODE_ENV=_production DB_ID=Aurelien49 DB_PW=Auto012022 PORT=5000 nodemon index
+/// Todo: NODE_ENV=_production DB_ID=Aurelien49 DB_PW=Auto012022 PORT=5000 API_KEY_SENDGRID=SG.Wmbz1LfjQ0-9gAU8GFZhPw.R6S63MB6RjlCv9dkPhzfBPt9xc3UULeK0snFMhlnQv^C nodemon index
