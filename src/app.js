@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const PORT = require('./index');
+const csp = require('helmet-csp');
 
 const app = express();
 app.use(helmet());

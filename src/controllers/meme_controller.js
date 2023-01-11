@@ -35,13 +35,15 @@ exports.getMemesUserHistory = (req, res, next) => {
 exports.getMemesFromImgFlip = (req, res, next) => {
     console.log('getMemesFromImgFlip: ');
 
-    fetch('https://api.imgflip.com/get_memes')
+    fetch('https://api.imgflip.com/get_memes', {})
         .then(response => response.json())
         .then(data => {
                 this.memes = data['data']['memes'];
                 this.memes.length = 10;
 
-                res.status(200).json(data)
+                res.writeHead(200, {
+                    "Content-Security-Policy": "default-src 'self'"
+                }).status(200).json(data);
             }
         ).catch(err => {
             console.error(err);

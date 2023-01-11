@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middlewares/auth');
 const upload = require('../middlewares/upload');
+const cors = require('cors');
 
 // import des controllers
 // ils contiennent les méthodes vers lesquelles doivent pointer les requêtes
