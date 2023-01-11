@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const {OAuth2Client} = require('google-auth-library');
 const l = require('../log/main_logger');
 const sgMail = require('@sendgrid/mail');
-import fetch from "node-fetch";
 
 //
 const CLIENT_ID = process.env.CLIENT_ID;
