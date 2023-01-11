@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const PORT = require('./index');
 const csp = require('helmet-csp');
+const path = require('path');
 
 const app = express();
 app.use(helmet());
@@ -36,6 +37,12 @@ const userRoutes = require('./routes/user_routes');
 
 app.use('/api/memes', objectRoutes);
 app.use('/api/users', userRoutes);
+
+app.get('/favicon.ico', (req, res) => {
+    // Use actual relative path to your .ico file here
+    res.sendFile(path.resolve(__dirname, '../favicon.ico'));
+});
+
 app.get('/', function (req, res) {
     console.log('Page par défaut new 2')
     res.setHeader("Content-type", "text/html; charset=ut-8");

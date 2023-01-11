@@ -42,7 +42,7 @@ exports.getMemesFromImgFlip = (req, res, next) => {
                 this.memes.length = 10;
 
                 res.writeHead(200, {
-                    "Content-Security-Policy": "default-src 'none'"
+                    "Content-Security-Policy": "default-src 'self'"
                 }).status(200).json(data);
             }
         ).catch(err => {
