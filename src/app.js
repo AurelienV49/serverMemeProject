@@ -36,7 +36,7 @@ const userRoutes = require('./routes/user_routes');
 app.use('/api/memes', objectRoutes);
 app.use('/api/users', userRoutes);
 app.get('/', function (req, res) {
-    console.log('Page par défaut')
+    console.log('Page par défaut new 2')
     res.setHeader("Content-type", "text/html; charset=ut-8");
     res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
 });
