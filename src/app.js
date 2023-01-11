@@ -2,9 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const l = require('./log/main_logger');
 const PORT = require('./index');
-const upload = require("./middlewares/upload");
 
 const app = express();
 app.use(helmet());
@@ -38,6 +36,7 @@ const userRoutes = require('./routes/user_routes');
 app.use('/api/memes', objectRoutes);
 app.use('/api/users', userRoutes);
 app.get('/', function (req, res) {
+    console.log('Page par défaut')
     res.setHeader("Content-type", "text/html; charset=ut-8");
     res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
 });
