@@ -7,9 +7,9 @@ const csp = require('helmet-csp');
 const path = require('path');
 
 const app = express();
-app.use(helmet({
+/*app.use(helmet({
     contentSecurityPolicy: false,
-}));
+}));*/
 app.use(compression());
 
 // Passby CORS errors
