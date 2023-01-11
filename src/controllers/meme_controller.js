@@ -3,6 +3,7 @@ const multer = require('multer');
 const express = require("express");
 const cloudinary = require('cloudinary').v2;
 const router = express.Router();
+import fetch from "node-fetch";
 
 exports.getMeme = (req, res, next) => {
     console.log('getMeme: ', req.params.id);
