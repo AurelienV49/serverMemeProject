@@ -40,9 +40,7 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         .then(data => {
                 this.memes = data['data']['memes'];
                 this.memes.length = 10;
-
-                res.setHeader("Content-Security-Policy", "default-src 'self' https://apis.google.com")
-                    .status(200).json(data);
+                res.status(200).json(data);
             }
         ).catch(err => {
             console.error(err);
