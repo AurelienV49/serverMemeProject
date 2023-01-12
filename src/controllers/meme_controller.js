@@ -3,6 +3,7 @@ const multer = require('multer');
 const express = require("express");
 const cloudinary = require('cloudinary').v2;
 const router = express.Router();
+const request = new XMLHttpRequest();
 
 exports.getMeme = (req, res, next) => {
     console.log('getMeme: ', req.params.id);
@@ -35,7 +36,7 @@ exports.getMemesUserHistory = (req, res, next) => {
 exports.getMemesFromImgFlip = (req, res, next) => {
     console.log('getMemesFromImgFlip: ');
 
-    /*window.fetch('http://api.imgflip.com/get_memes', {'Content-Type': 'application/json',})
+    /*window.fetch('https://api.imgflip.com/get_memes', {'Content-Type': 'application/json',})
         .then(response => response.json())
         .then(data => {
                 this.memes = data['data']['memes'];
@@ -47,8 +48,18 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         }
     );*/
 
-    res.setHeader("Content-type", "text/html; charset=ut-8");
-    res.send("<h1>Route imgflip</h1>");
+    try {
+        request.open('GET', 'https://api.imgflip.com/get_memes');
+        request.responseType = 'json';
+        request.send();
+
+    } catch (error) {
+        console.error(`XHR error ${request.status}`);
+        res.setHeader("Content-type", "text/html; charset=ut-8");
+        res.send("<h1>Erreur XMLHTTPREQUREST</h1>");
+    }
+
+
 }
 
 exports.createMeme = (req, res, next) => {
