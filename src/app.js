@@ -40,15 +40,15 @@ const userRoutes = require('./routes/user_routes');
 app.use('/api/memes', objectRoutes);
 app.use('/api/users', userRoutes);
 
-app.get('/favicon.ico', (req, res) => {
+/*app.get('/favicon.ico', (req, res) => {
     // Use actual relative path to your .ico file here
     res.sendFile(path.resolve(__dirname, '../favicon.ico'));
-});
+});*/
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     res.setHeader("Content-type", "text/html; charset=ut-8");
     res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
-});
+});*/
 
 
 module.exports = app;
