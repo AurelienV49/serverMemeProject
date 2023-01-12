@@ -3,6 +3,7 @@ const multer = require('multer');
 const express = require("express");
 const cloudinary = require('cloudinary').v2;
 const router = express.Router();
+const axios = require('axios');
 
 exports.getMeme = (req, res, next) => {
     console.log('getMeme: ', req.params.id);
@@ -47,13 +48,25 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         }
     );*/
 
-    if (window.fetch) {
+    axios.get('https://api.imgflip.com/get_memes',)
+        .then(function (response) {
+            // handle success
+            console.log(response);
+            return response.json();
+        }).then(data => {
+            this.memes = data['data']['memes'];
+            this.memes.length = 10;
+            res.status(200).json(data);
+        }
+    ).catch(function (error) {
+        // handle error
+        console.log(error);
         res.setHeader("Content-type", "text/html; charset=ut-8");
-        res.send("<h1>Fetch est pris en charge</h1>");
-    } else {
-        res.setHeader("Content-type", "text/html; charset=ut-8");
-        res.send("<h1>Fetch n'est pas pris en charge</h1>");
-    }
+        res.send("<h1>Erreur get : https://api.imgflip.com/get_memes</h1>");
+    })
+        .finally(function () {
+            console.log('Finally tentative https://api.imgflip.com/get_memes')
+        });
 }
 
 exports.createMeme = (req, res, next) => {
