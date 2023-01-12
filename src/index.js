@@ -10,7 +10,7 @@ const server = http.createServer(app);
 connection()
     .then((_) => {
         server.listen(PORT, () => {
-            if (process.env.NODE_ENV !== 'production') {
+            if (process.env.NODE_ENV === 'production') {
                 console.log("\x1b[32m", `✔   2) Success start server on port ${PORT}      ✔`);
             }
         });
