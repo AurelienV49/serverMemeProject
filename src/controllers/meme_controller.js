@@ -34,34 +34,13 @@ exports.getMemesUserHistory = (req, res, next) => {
 }
 
 exports.getMemesFromImgFlip = (req, res, next) => {
-    console.log('getMemesFromImgFlip: ');
-
     axios.get('https://api.imgflip.com/get_memes',)
-        .then((resp0) => {
-            // handle success
-            var resp = resp0;
-            console.log("server: +++++++++++++ resp.status = ", resp.status);
-            
-            console.log("server: +++++++++++++ resp.data.data.memes =  ", resp.data.data.memes);
+        .then((resp) => {
             res.status(200).json(resp.data.data.memes);
-            //return resp.json();
-        }).then(data => {
-            //this.memes = data['data']['memes'];
-            //this.memes.length = 10;
-            //res.status(200).json(data);
-            //console.log('server: mes données: ', data)
-            //res.setHeader("Content-type", "text/html; charset=ut-8");
-            //res.send("<h1>Succès get : https://api.imgflip.com/get_memes COOL</h1>");
-        }
-    ).catch(function (error) {
-        // handle error
+        }).catch(function (error) {
         console.log(error);
-        res.setHeader("Content-type", "text/html; charset=ut-8");
-        res.send("<h1>Erreur get : https://api.imgflip.com/get_memes</h1>");
+        res.status(400).json({message: "Server: error fetch 'https://api.imgflip.com/get_memes'"});
     })
-        .finally(function () {
-            console.log('Finally tentative https://api.imgflip.com/get_memes')
-        });
 }
 
 exports.createMeme = (req, res, next) => {
@@ -71,7 +50,7 @@ exports.createMeme = (req, res, next) => {
     console.log('Server: createMeme: ', req_body['data']);
     console.log(' --------------------------------------->');
 
-    fetch(req_body.data.urlToGenerateMeme)
+    axios.post(req_body.data.urlToGenerateMeme)
         .then(response =>
             response.json()
         )

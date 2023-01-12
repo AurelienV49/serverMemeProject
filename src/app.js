@@ -50,11 +50,6 @@ app.get('/', function (req, res) {
     res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
 });
 
-app.get('/testautreroute', function (req, res) {
-    res.setHeader("Content-type", "text/html; charset=ut-8");
-    res.send("<h1>Une autre route</h1>");
-});
-
 
 module.exports = app;
 
