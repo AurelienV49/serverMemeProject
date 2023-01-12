@@ -47,7 +47,7 @@ exports.createMeme = (req, res, next) => {
     let req_body = req.body;
 
     console.log('<---------------------------------------');
-    console.log('Server: createMeme: ', req_body['data']);
+    console.log('Server: createMeme: req_body[\'data\'] : ', req_body['data']);
     console.log(' --------------------------------------->');
 
     axios.post(req_body.data.urlToGenerateMeme)
@@ -55,7 +55,7 @@ exports.createMeme = (req, res, next) => {
             response.json()
         )*/
         .then(data => {
-            console.log('Server: createMeme data = ', data);
+            console.log('Server: createMeme data.data = ', data.data);
             return data.data;
         })
         .then(async data => {
