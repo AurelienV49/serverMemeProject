@@ -170,7 +170,7 @@ exports.sendpicture = (req, res, next) => {
     const msg = {
         to: req.body.user_email.toString(),
         from: 'aurelienvaillant@outlook.fr',
-        subject: '🎉 Your wonderfull meme 🎉',
+        subject: `🎉 ${req.body.meme_name} 🎉`,
         text: 'Super cool nodjs et l\'API SendGrid',
         html: `<strong style="color: greenyellow">TP Ynov 2022/2023</strong> 
             <ul>\n 
