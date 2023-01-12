@@ -37,10 +37,20 @@ exports.getMemesFromImgFlip = (req, res, next) => {
     console.log('getMemesFromImgFlip: ');
 
     axios.get('https://api.imgflip.com/get_memes',)
-        .then(function (response) {
+        .then((resp0) => {
             // handle success
-            console.log(response);
-            return response.json();
+            var resp = resp0;
+            console.log("server: ++++++0000000+++++++ resp = ", resp);
+
+            console.log("server: +++++++++++++ resp.status = ", resp.status);
+            console.log("server: +++++++++++++ resp.data = ", resp.data);
+            console.log("server: +++++++++++++ resp.json = ", resp.json);
+            console.log("server: +++++++++++++ resp.config = ", resp.config);
+            console.log("server: +++++++++++++ resp.json = ", resp.headers);
+            console.log("server: +++++++++++++ resp.request = ", resp.request);
+            console.log("server: +++++++++++++ resp.request = ", resp.request);
+            console.log("server: +++++++++++++ resp.statusText = ", resp.statusText);
+            return resp.json();
         }).then(data => {
             //this.memes = data['data']['memes'];
             //this.memes.length = 10;
