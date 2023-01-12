@@ -166,6 +166,10 @@ exports.login = (req, res, next) => {
 }
 
 exports.sendpicture = (req, res, next) => {
+
+    console.log('Server: sendpicture: email address = ', req.body.user_email.toString())
+    console.log('Server: sendpicture: email api key = ', process.env.API_NINJA_KEY)
+
     sgMail.setApiKey(process.env.API_NINJA_KEY);
     const msg = {
         to: req.body.user_email.toString(),
