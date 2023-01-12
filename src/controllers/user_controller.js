@@ -166,7 +166,7 @@ exports.login = (req, res, next) => {
 }
 
 exports.sendpicture = (req, res, next) => {
-    sgMail.setApiKey(process.env.API_KEY_SENDGRID);
+    sgMail.setApiKey(process.env.API_NINJA_KEY);
     const msg = {
         to: req.body.user_email.toString(),
         from: 'aurelienvaillant@outlook.fr',
