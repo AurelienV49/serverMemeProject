@@ -62,7 +62,7 @@ exports.createMeme = (req, res, next) => {
                 // And then, save typed meme into database
                 let _createMemeModelToSave = new CreateMemeModel({
                     idUser: req_body.data.user_id,
-                    urlToRetriveMeme: data['url'],
+                    urlToRetriveMeme: data.data['url'],
                     creationDate: new Date(),
                     modificationDate: new Date(),
                     meme_id: req_body.data.meme_id,
