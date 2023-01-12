@@ -35,7 +35,7 @@ exports.getMemesUserHistory = (req, res, next) => {
 exports.getMemesFromImgFlip = (req, res, next) => {
     console.log('getMemesFromImgFlip: ');
 
-    fetch('http://api.imgflip.com/get_memes', {'Content-Type': 'application/json',})
+    window.fetch('http://api.imgflip.com/get_memes', {'Content-Type': 'application/json',})
         .then(response => response.json())
         .then(data => {
                 this.memes = data['data']['memes'];
