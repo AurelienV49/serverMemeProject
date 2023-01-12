@@ -48,18 +48,13 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         }
     );*/
 
-    try {
-        request.open('GET', 'https://api.imgflip.com/get_memes');
-        request.responseType = 'json';
-        request.send();
-
-    } catch (error) {
-        console.error(`XHR error ${request.status}`);
+    if (window.fetch) {
         res.setHeader("Content-type", "text/html; charset=ut-8");
-        res.send("<h1>Erreur XMLHTTPREQUREST</h1>");
+        res.send("<h1>Fetch est pris en charge</h1>");
+    } else {
+        res.setHeader("Content-type", "text/html; charset=ut-8");
+        res.send("<h1>Fetch n'est pas pris en charge</h1>");
     }
-
-
 }
 
 exports.createMeme = (req, res, next) => {
