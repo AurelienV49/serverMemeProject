@@ -125,17 +125,20 @@ exports.updateMeme = (req, res, next) => {
 }
 
 exports.deleteMeme = (req, res, next) => {
-    console.log('deleteMeme : id = ', req.params.id);
+    console.log('server: ---------------- deleteMeme : id = ', req.params.id);
 
     CreateMemeModel.findByIdAndDelete(req.params.id)
         .then((result) => {
             if (result) {
+                console.log('server: ---------------- deleteMeme ok');
                 res.status(200).json(result)
             } else {
+                console.log('server: ---------------- deleteMeme failed');
                 res.status(500).json({message: 'ALREADY DELETED'})
             }
         })
         .catch((err) => {
+                console.log('server: ---------------- deleteMeme failed not found');
                 res.status(400).json({message: 'NOT FOUND', error: err})
             }
         )
