@@ -36,18 +36,6 @@ exports.getMemesUserHistory = (req, res, next) => {
 exports.getMemesFromImgFlip = (req, res, next) => {
     console.log('getMemesFromImgFlip: ');
 
-    /*window.fetch('https://api.imgflip.com/get_memes', {'Content-Type': 'application/json',})
-        .then(response => response.json())
-        .then(data => {
-                this.memes = data['data']['memes'];
-                this.memes.length = 10;
-                res.status(200).json(data);
-            }
-        ).catch(err => {
-            console.error(err);
-        }
-    );*/
-
     axios.get('https://api.imgflip.com/get_memes',)
         .then(function (response) {
             // handle success
