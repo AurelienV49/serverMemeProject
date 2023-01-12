@@ -40,8 +40,6 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         .then((resp0) => {
             // handle success
             var resp = resp0;
-            console.log("server: ++++++0000000+++++++ resp = ", resp);
-
             console.log("server: +++++++++++++ resp.status = ", resp.status);
             console.log("server: +++++++++++++ resp.data = ", resp.data);
             //console.log("server: +++++++++++++ resp.json = ", resp.json);
@@ -49,14 +47,17 @@ exports.getMemesFromImgFlip = (req, res, next) => {
             //console.log("server: +++++++++++++ resp.json = ", resp.headers);
             //console.log("server: +++++++++++++ resp.request = ", resp.request);
             console.log("server: +++++++++++++ resp.statusText = ", resp.statusText);
-            return resp.json();
+            this.memes = resp['data']['memes'];
+            this.memes.length = 20;
+            res.status(200).json(resp);
+            //return resp.json();
         }).then(data => {
             //this.memes = data['data']['memes'];
             //this.memes.length = 10;
             //res.status(200).json(data);
-            console.log('server: mes données: ', data)
-            res.setHeader("Content-type", "text/html; charset=ut-8");
-            res.send("<h1>Succès get : https://api.imgflip.com/get_memes COOL</h1>");
+            //console.log('server: mes données: ', data)
+            //res.setHeader("Content-type", "text/html; charset=ut-8");
+            //res.send("<h1>Succès get : https://api.imgflip.com/get_memes COOL</h1>");
         }
     ).catch(function (error) {
         // handle error
