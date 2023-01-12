@@ -46,9 +46,13 @@ app.get('/favicon.ico', (req, res) => {
 });
 
 app.get('/', function (req, res) {
-    console.log('Page par défaut new 2')
     res.setHeader("Content-type", "text/html; charset=ut-8");
     res.send("<h1>Le serveur à répondu et est connecté sur le port " + PORT.PORT + " !</h1>");
+});
+
+app.get('/testautreroute', function (req, res) {
+    res.setHeader("Content-type", "text/html; charset=ut-8");
+    res.send("<h1>Une autre route</h1>");
 });
 
 
