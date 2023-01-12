@@ -51,12 +51,13 @@ exports.createMeme = (req, res, next) => {
     console.log(' --------------------------------------->');
 
     axios.post(req_body.data.urlToGenerateMeme)
-        .then(response =>
+        /*.then(response =>
             response.json()
-        )
-        .then(data =>
-            data['data']
-        )
+        )*/
+        .then(data => {
+            console.log('Server: createMeme data = ', data);
+            return data.data;
+        })
         .then(async data => {
                 // And then, save typed meme into database
                 let _createMemeModelToSave = new CreateMemeModel({
