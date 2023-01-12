@@ -41,11 +41,10 @@ exports.getMemesFromImgFlip = (req, res, next) => {
             // handle success
             var resp = resp0;
             console.log("server: +++++++++++++ resp.status = ", resp.status);
-            console.log("server: +++++++++++++ resp.data.data.memes = ", resp.data.data.memes);
 
-            this.memes = resp.data.data.memes;
-            this.memes.length = 20;
-            res.status(200).json(resp);
+            resp.data.data.memes.length = 20;
+            console.log("server: +++++++++++++ resp.data.data.memes = 20 =  ", resp.data.data.memes);
+            res.status(200).json(resp.data.data.memes);
             //return resp.json();
         }).then(data => {
             //this.memes = data['data']['memes'];
