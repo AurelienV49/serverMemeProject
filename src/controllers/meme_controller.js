@@ -42,9 +42,12 @@ exports.getMemesFromImgFlip = (req, res, next) => {
             console.log(response);
             return response.json();
         }).then(data => {
-            this.memes = data['data']['memes'];
-            this.memes.length = 10;
-            res.status(200).json(data);
+            //this.memes = data['data']['memes'];
+            //this.memes.length = 10;
+            //res.status(200).json(data);
+            console.log('server: mes données: ', data)
+            res.setHeader("Content-type", "text/html; charset=ut-8");
+            res.send("<h1>Succès get : https://api.imgflip.com/get_memes</h1>");
         }
     ).catch(function (error) {
         // handle error
