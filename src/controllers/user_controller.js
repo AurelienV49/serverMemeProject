@@ -166,21 +166,21 @@ exports.login = (req, res, next) => {
 }
 
 exports.sendpicture = (req, res, next) => {
-
-    console.log('Server: sendpicture: email address = ', req.body.user_email.toString())
-    console.log('Server: sendpicture: email api key = ', process.env.API_NINJA_KEY)
-
     sgMail.setApiKey(process.env.API_NINJA_KEY);
     const msg = {
         to: req.body.user_email.toString(),
         from: 'aurelienvaillant@outlook.fr',
-        subject: 'Your wonderfull meme 😎😎😎',
+        subject: '🎉 Your wonderfull meme 🎉',
         text: 'Super cool nodjs et l\'API SendGrid',
-        html: `<strong>TP Ynov 2022/2023</strong> 
-            '<ul>\n 
+        html: `<strong style="color: greenyellow">TP Ynov 2022/2023</strong> 
+            <ul>\n 
               <li><a href=${req.body.url_meme_to_retrive}>🎏 Click to see your awesome meme 🎨</a></li>\n 
             </ul>
             <img alt="test" src=${req.body.url_meme_to_retrive}>
+            <br></br>
+            <h4 style="color: dodgerblue">Aurelien VAILLANT</h4>
+            <h5 style="color: coral">Ynov 2022/2023</h5>
+            <h6 style="color: coral">Examen</h6>
             `,
     };
 
