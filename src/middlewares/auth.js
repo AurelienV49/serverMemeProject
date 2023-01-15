@@ -20,10 +20,9 @@ module.exports = (req, res, next) => { // next() sert à passer le relai au midd
         }
 
         console.log('decodeToken: ', decodeToken);
-        console.log(1)
+
         User.findById(decodeToken.userId)
             .then((user) => {
-                console.log(2);
                 if (email === user.email) {
                     l.i(`Succès: user enregistré avec l'email : ${email}`);
                     next();
