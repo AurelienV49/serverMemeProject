@@ -4,6 +4,7 @@ const l = require('../log/main_logger');
 
 module.exports = (req, res, next) => {
     try {
+        console.log('server: req: ' + req);
         console.log('server: req.headers.email: ' + req.headers.email + ', authorization: ' + req.headers.authorization);
         const email = req.headers.email;
         const token = req.headers.authorization;
@@ -12,8 +13,8 @@ module.exports = (req, res, next) => {
         try {
             decodeToken = jwt.verify(token, process.env.BRCYPTE_SECRET_TOKEN_KEY);
         } catch {
-            l.e(`Echec décodage du token`);
-            console.log(`Echec décodage du token`);
+            l.e(`Auth: echec décodage du token`);
+            console.log(`Auth: echec décodage du token`);
         }
 
         console.log('Token décodé: ', decodeToken);
