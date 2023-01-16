@@ -138,7 +138,7 @@ exports.login = (req, res) => {
                     l.e(`login from ${req.body.email}: USER RESULT NULL`);
                     res.status(404).json({message: 'USER RESULT NULL'})
                 } else {
-                    console.log('req.body.password: ' + req.body.password + ', user.password' + user.password + ', process.env.BRCYPTE_SECRET_TOKEN_KEY: ' + process.env.BRCYPTE_SECRET_TOKEN_KEY)
+                    console.log('req.body.password: ' + req.body.password + ', user.password: ' + user.password + ', process.env.BRCYPTE_SECRET_TOKEN_KEY: ' + process.env.BRCYPTE_SECRET_TOKEN_KEY)
                     bcrypt.compare(req.body.password, user.password)
                         .then((valid) => {
                             console.log('comparaison password valid : ', valid)
@@ -150,6 +150,7 @@ exports.login = (req, res) => {
                                 const token = jwt.sign(
                                     {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '120s'});
                                 user.password = '';
+                                console.log('Token avant res.status 200 : ', token)
                                 res.status(200).json({
                                     token: token,
                                     user: user
