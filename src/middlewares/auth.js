@@ -1,27 +1,24 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/user_model');
+const User_in_db = require('../models/user_model');
 const l = require('../log/main_logger');
 
-
-module.exports = (req, res, next) => { // next() sert à passer le relai au middleware suivant
-    console.log('+++++++++++++++++++++++++++++++++++++++++++++ Dans Auth');
+module.exports = (req, res, next) => {
     try {
-        console.log('req.headers.email: ', req.headers.email);
-        console.log('req.headers.authorization: ', req.headers.authorization);
+        console.log('server: req.headers.email: ' + req.headers.email + ', authorization: ' + req.headers.authorization);
         const email = req.headers.email;
         const token = req.headers.authorization;
         let decodeToken = "";
 
         try {
-            decodeToken = jwt.verify(token, process.env.RANDOM_BRCYPTE_SECRET_TOKEN);
+            decodeToken = jwt.verify(token, process.env.BRCYPTE_SECRET_TOKEN_KEY);
         } catch {
             l.e(`Echec décodage du token`);
             console.log(`Echec décodage du token`);
         }
 
-        console.log('decodeToken: ', decodeToken);
+        console.log('Token décodé: ', decodeToken);
 
-        User.findById(decodeToken.userId)
+        User_in_db.findById(decodeToken.userId)
             .then((user) => {
                 if (email === user.email) {
                     l.i(`Succès: user enregistré avec l'email : ${email}`);
