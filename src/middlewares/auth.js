@@ -13,7 +13,7 @@ module.exports = (req, res, next) => { // next() sert à passer le relai au midd
         let decodeToken = "";
 
         try {
-            decodeToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+            decodeToken = jwt.verify(token, process.env.RANDOM_BRCYPTE_SECRET_TOKEN);
         } catch {
             l.e(`Echec décodage du token`);
             console.log(`Echec décodage du token`);
