@@ -132,7 +132,9 @@ exports.login = (req, res) => {
     } else {
         User.findOne({email: req.body.email})
             .then((user) => {
+                console.log('Server/login/body/then user req.body: ', user);
                 if (!user) {
+                    console.log('Server/login/body/then user/if(!user): ', user);
                     l.e(`login from ${req.body.email}: USER RESULT NULL`);
                     res.status(404).json({message: 'USER RESULT NULL'})
                 } else {
