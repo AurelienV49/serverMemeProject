@@ -142,7 +142,7 @@ exports.login = (req, res) => {
                                 res.status(500).json({message: 'API REST ERROR: COMPARISON FAILED'})
                             } else {
                                 l.i(`login from ${req.body.email}`);
-                                const token = jwt.sign({userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '24h'});
+                                const token = jwt.sign({userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '60'});
                                 user.password = '';
                                 res.status(200).json({
                                     token: token,
