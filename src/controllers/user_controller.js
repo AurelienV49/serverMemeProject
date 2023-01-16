@@ -136,8 +136,10 @@ exports.login = (req, res) => {
                     l.e(`login from ${req.body.email}: USER RESULT NULL`);
                     res.status(404).json({message: 'USER RESULT NULL'})
                 } else {
+                    console.log('req.body.password: ' + req.body.password + ', user.password' + user.password + ', process.env.BRCYPTE_SECRET_TOKEN_KEY: ' + process.env.BRCYPTE_SECRET_TOKEN_KEY)
                     bcrypt.compare(req.body.password, user.password)
                         .then((valid) => {
+                            console.log('comparaison password valid : ', valid)
                             if (!valid) {
                                 l.e(`login from ${req.body.email}: API REST ERROR: COMPARISON FAILED`);
                                 res.status(500).json({message: 'API REST ERROR: COMPARISON FAILED'})
