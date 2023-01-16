@@ -47,7 +47,7 @@ async function verify(token, req, res) {
                     })
                     .catch(() => res.status(500).json({message: 'API REST ERROR: Pb avec le chiffrement'}))
             } else {
-                const token = jwt.sign({userId: user._id}, 'RANDOM_TOKEN_SECRET', {expiresIn: '24h'});
+                const token = jwt.sign({userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '24h'});
                 user.password = '';
 //            user.name = payload.name;
                 res.status(200).json({
@@ -55,12 +55,12 @@ async function verify(token, req, res) {
                     user: user
                 })
             }
-        }).catch((error) => {
+        }).catch((_) => {
         res.status(500).json({message: 'Request Error'});
     })
 }
 
-exports.getUserList = (req, res, next) => {
+exports.getUserList = (req, res) => {
     console.log('Méthode getUserList');
 
     User.find()
@@ -75,7 +75,7 @@ exports.getUserList = (req, res, next) => {
         })
 }
 
-exports.getUser = (req, res, next) => {
+exports.getUser = (req, res) => {
     console.log('Méthode getUser', req.params);
     User.findById(req.params.id)
         .then((user) => {
@@ -89,7 +89,7 @@ exports.getUser = (req, res, next) => {
         })
 }
 
-exports.createUser = (req, res, next) => {
+exports.createUser = (req, res) => {
     bcrypt.hash(req.body.password, 10)
         .then((hash) => {
             let user = new User({
@@ -119,7 +119,7 @@ exports.createUser = (req, res, next) => {
         })
 }
 
-exports.login = (req, res, next) => {
+exports.login = (req, res) => {
     console.log('Server/login/body: ', req.body);
     let token = req.body.token;
 
@@ -142,7 +142,7 @@ exports.login = (req, res, next) => {
                                 res.status(500).json({message: 'API REST ERROR: COMPARISON FAILED'})
                             } else {
                                 l.i(`login from ${req.body.email}`);
-                                const token = jwt.sign({userId: user._id}, 'RANDOM_TOKEN_SECRET', {expiresIn: '24h'});
+                                const token = jwt.sign({userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '24h'});
                                 user.password = '';
                                 res.status(200).json({
                                     token: token,
@@ -150,7 +150,7 @@ exports.login = (req, res, next) => {
                                 })
                             }
                         })
-                        .catch((err) => {
+                        .catch((_) => {
                             l.e(`login from ${req.body.email}: API REST ERROR: COMPARISON FAILED`);
                             res.status(500).json({message: 'API REST ERROR: COMPARISON FAILED'})
                         })
@@ -164,7 +164,7 @@ exports.login = (req, res, next) => {
     }
 }
 
-exports.sendpicture = (req, res, next) => {
+exports.sendpicture = (req, res) => {
     sgMail.setApiKey(process.env.API_NINJA_KEY);
     const msg = {
         to: req.body.user_email.toString(),
@@ -176,7 +176,7 @@ exports.sendpicture = (req, res, next) => {
               <li><a href=${req.body.url_meme_to_retrive}>🎏 Click to see your awesome meme 🎨</a></li>\n 
             </ul>
             <img alt="test" src=${req.body.url_meme_to_retrive}>
-            <br></br>
+            <p>---</p>
             <h4 style="color: dodgerblue">Aurelien VAILLANT</h4>
             <h5 style="color: coral">Ynov 2022/2023</h5>
             <h6 style="color: coral">Examen</h6>
@@ -196,7 +196,7 @@ exports.sendpicture = (req, res, next) => {
         });
 }
 
-exports.updateUser = (req, res, next) => {
+exports.updateUser = (req, res) => {
     console.log('Méthode updateUser ' + req.params.id, req.body);
 
     User.findById(req.params.id)
@@ -218,7 +218,7 @@ exports.updateUser = (req, res, next) => {
         })
 }
 
-exports.deleteUser = (req, res, next) => {
+exports.deleteUser = (req, res) => {
     console.log('Méthode deleteUser ', req.params.id);
 
     User.findByIdAndDelete(req.params.id)
