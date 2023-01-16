@@ -48,7 +48,7 @@ async function verify(token, req, res) {
                     .catch(() => res.status(500).json({message: 'API REST ERROR: Pb avec le chiffrement'}))
             } else {
                 const token = jwt.sign(
-                    {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '1m'});
+                    {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '120s'});
                 user.password = '';
 //            user.name = payload.name;
                 res.status(200).json({
@@ -144,7 +144,7 @@ exports.login = (req, res) => {
                             } else {
                                 l.i(`login from ${req.body.email}`);
                                 const token = jwt.sign(
-                                    {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '1m'});
+                                    {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '120s'});
                                 user.password = '';
                                 res.status(200).json({
                                     token: token,
