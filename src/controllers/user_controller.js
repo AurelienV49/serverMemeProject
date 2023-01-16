@@ -16,7 +16,6 @@ async function verify(token, req, res) {
         audience: CLIENT_ID
     });
     const payload = ticket.getPayload();
-//  const userid = payload['sub'];
 //  const userid = payload.sub;
 
     console.log(payload);
@@ -121,7 +120,7 @@ exports.createUser = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
-    console.log(req.body);
+    console.log('Server/login/body: ', req.body);
     let token = req.body.token;
 
     if (token) {
