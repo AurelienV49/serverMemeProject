@@ -98,7 +98,7 @@ exports.createUser = (req, res) => {
             console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
 
             if (userExist.length > 0) {
-                return res.status(409).send({message: "User already exists"});
+                res.status(409).send({message: "User already exists"});
             } else {
                 return hash;
             }
