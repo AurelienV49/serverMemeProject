@@ -125,6 +125,7 @@ exports.login = (req, res) => {
     let token = req.body.token;
 
     if (token) {
+        console.log('Server/login/if(token): ', token);
         verify(token, req, res).catch(() => {
             l.e(`login/token from ${req.body.email}`);
             console.error
