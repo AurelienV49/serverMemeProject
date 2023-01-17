@@ -90,49 +90,46 @@ exports.getUser = (req, res) => {
         })
 }
 
-exports.createUser = (req, res) => {
+exports.createUser = async (req, res) => {
     console.log('Server/user_controller/createUser/userExist : ', req.body)
 
-    bcrypt.hash(req.body.password, 10)
-        .then(async (hash) => {
-            const userExist = await User.find({email: req.body.email});
+    const userExist = await User.find({email: req.body.email});
 
-            console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
+    console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
 
-            if (userExist.length > 0) {
-                console.log('server createUser > 0')
-                res.status(409).send({message: "User already exists"});
-            } else {
-                console.log('server createUser <= 0')
-                return hash;
-            }
-        })
-        .then((hash) => {
-            let user = new User({
-                email: req.body.email,
-                password: hash,
-                name: req.body.name,
-                creationDate: new Date(),
-                modificationDate: new Date(),
-                active: true
-            });
+    if (userExist.length > 0) {
+        console.log('server createUser > 0')
+        res.status(409).send({message: "User already exists"});
+    } else {
+        console.log('server createUser <= 0')
+        bcrypt.hash(req.body.password, 10)
+            .then((hash) => {
+                let user = new User({
+                    email: req.body.email,
+                    password: hash,
+                    name: req.body.name,
+                    creationDate: new Date(),
+                    modificationDate: new Date(),
+                    active: true
+                });
 
-            l.i(`createUser from ${req.body.email}`);
+                l.i(`createUser from ${req.body.email}`);
 
-            user.save()
-                .then((saved) => {
-                    l.i(`createUser/save from ${req.body.email}`);
-                    res.status(200).json(saved)
-                })
-                .catch(() => {
-                    l.e(`createUser/save from ${req.body.email}: API REST ERROR: Pb avec la creation`);
-                    res.status(500).json({message: 'API REST ERROR: Pb avec la creation'})
-                })
-        })
-        .catch(() => {
-            l.e(`createUser from ${req.body.email}: API REST ERROR: Pb avec le chiffrement`);
-            res.status(500).json({message: 'API REST ERROR: Pb avec le chiffrement'})
-        })
+                user.save()
+                    .then((saved) => {
+                        l.i(`createUser/save from ${req.body.email}`);
+                        res.status(200).json(saved)
+                    })
+                    .catch(() => {
+                        l.e(`createUser/save from ${req.body.email}: API REST ERROR: Pb avec la creation`);
+                        res.status(500).json({message: 'API REST ERROR: Pb avec la creation'})
+                    })
+            })
+            .catch(() => {
+                l.e(`createUser from ${req.body.email}: API REST ERROR: Pb avec le chiffrement`);
+                res.status(500).json({message: 'API REST ERROR: Pb avec le chiffrement'})
+            })
+    }
 }
 
 exports.login = (req, res) => {
