@@ -91,6 +91,8 @@ exports.getUser = (req, res) => {
 }
 
 exports.createUser = (req, res) => {
+    console.log('Server/user_controller/createUser/userExist : ', req.body)
+
     bcrypt.hash(req.body.password, 10)
         .then(async (hash) => {
             const userExist = await User.find({email: req.body.email});
@@ -98,8 +100,10 @@ exports.createUser = (req, res) => {
             console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
 
             if (userExist.length > 0) {
+                console.log('server createUser > 0')
                 res.status(409).send({message: "User already exists"});
             } else {
+                console.log('server createUser <= 0')
                 return hash;
             }
         })
