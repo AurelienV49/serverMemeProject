@@ -92,6 +92,15 @@ exports.getUser = (req, res) => {
 
 exports.createUser = (req, res) => {
     bcrypt.hash(req.body.password, 10)
+        .then(async (hash) => {
+            const userExist = await User.find({email: req.body.email});
+
+            if (userExist.length > 0) {
+                return res.status(409).send({message: "User already exists"});
+            } else {
+                return hash;
+            }
+        })
         .then((hash) => {
             let user = new User({
                 email: req.body.email,
