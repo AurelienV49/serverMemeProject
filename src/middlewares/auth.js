@@ -30,7 +30,7 @@ module.exports = (req, res, next) => {
                 }
             })
             .catch(() => {
-                console.log('Server/auth: catch decodeToken.userId : ' + decodeToken.userId);
+                console.log('Server/auth: catch decodeToken.userId = ' + decodeToken.userId);
                 l.e(`Echec: UNAUTHORIZED 2`);
                 res.status(403).json({message: 'UNAUTHORIZED 2'})
             })
