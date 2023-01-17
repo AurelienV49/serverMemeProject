@@ -4,7 +4,6 @@ const l = require('../log/main_logger');
 
 module.exports = (req, res, next) => {
     try {
-        console.log('server: req: ' + req);
         console.log('server: req.headers.email: ' + req.headers.email + ', authorization: ' + req.headers.authorization);
         const email = req.headers.email;
         const token = req.headers.authorization;
@@ -21,6 +20,7 @@ module.exports = (req, res, next) => {
 
         User_in_db.findById(decodeToken.userId)
             .then((user) => {
+                console.log('Server/auth: then email' + email + ', user.email: ' + user.email);
                 if (email === user.email) {
                     l.i(`Succès: user enregistré avec l'email : ${email}`);
                     next();
