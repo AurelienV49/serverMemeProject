@@ -4,7 +4,7 @@ const l = require('../log/main_logger');
 
 module.exports = (req, res, next) => {
     try {
-        console.log('server: req.headers[\'X-Custom-Header\']: ' + req.headers['X-Custom-Header'] + 'server: req.headers.email: ' + req.headers.email + ', authorization: ' + req.headers.authorization);
+        console.log('server: req.headers.email: ' + req.headers.email + ', authorization: ' + req.headers.authorization);
         const email = req.headers.email;
         const token = req.headers.authorization;
         let decodeToken = "";
