@@ -95,6 +95,8 @@ exports.createUser = (req, res) => {
         .then(async (hash) => {
             const userExist = await User.find({email: req.body.email});
 
+            console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
+
             if (userExist.length > 0) {
                 return res.status(409).send({message: "User already exists"});
             } else {
