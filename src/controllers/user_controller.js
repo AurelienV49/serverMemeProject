@@ -99,7 +99,7 @@ exports.createUser = async (req, res) => {
 
     if (userExist.length > 0) {
         console.log('server createUser > 0')
-        res.status(409).send({message: "User already exists"});
+        res.status(409).end({message: "User already exists"});
     } else {
         console.log('server createUser <= 0')
         bcrypt.hash(req.body.password, 10)
