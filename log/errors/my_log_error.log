@@ -1,0 +1,7 @@
+2023-01-19T20:29:21.478Z [Debug Aurélien] e: login from aurel1@ynov.com: USER RESULT NULL
+2023-01-19T20:38:51.323Z [Debug Aurélien] e: login from aurel1@ynov.com: USER RESULT NULL
+2023-01-19T20:53:50.430Z [Debug Aurélien] e: Auth: echec décodage du token
+2023-01-19T20:53:50.443Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-19T20:53:50.446Z [Debug Aurélien] e: Auth: echec décodage du token
+2023-01-19T20:53:50.457Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-19T20:56:15.455Z [Debug Aurélien] e: login from aurel2@ynov.com: USER RESULT NULL

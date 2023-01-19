@@ -1,0 +1,44 @@
+2023-01-19T20:29:21.478Z [Debug Aurélien] e: login from aurel1@ynov.com: USER RESULT NULL
+2023-01-19T20:38:51.323Z [Debug Aurélien] e: login from aurel1@ynov.com: USER RESULT NULL
+2023-01-19T20:39:12.481Z [Debug Aurélien] i: createUser from aurel1@ynov.com
+2023-01-19T20:39:12.506Z [Debug Aurélien] i: createUser/save from aurel1@ynov.com
+2023-01-19T20:39:38.867Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:39:38.894Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:41:29.017Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:41:29.042Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:44:45.872Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:44:45.897Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:45:57.017Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:45:57.043Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:15.485Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:51:15.507Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:30.554Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:32.011Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:34.905Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:34.943Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:57.635Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:51:58.523Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:52:01.818Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:52:01.863Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:53:50.430Z [Debug Aurélien] e: Auth: echec décodage du token
+2023-01-19T20:53:50.443Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-19T20:53:50.446Z [Debug Aurélien] e: Auth: echec décodage du token
+2023-01-19T20:53:50.457Z [Debug Aurélien] e: Echec: UNAUTHORIZED 2
+2023-01-19T20:54:32.275Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:54:32.298Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:36.981Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:37.728Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:39.328Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:39.399Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:41.690Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:41.739Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:54:59.624Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:15.455Z [Debug Aurélien] e: login from aurel2@ynov.com: USER RESULT NULL
+2023-01-19T20:56:22.018Z [Debug Aurélien] i: login from aurel1@ynov.com
+2023-01-19T20:56:22.041Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:26.601Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:26.627Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:33.411Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:34.918Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:36.323Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com
+2023-01-19T20:56:36.360Z [Debug Aurélien] i: Succès: user enregistré avec l'email : aurel1@ynov.com

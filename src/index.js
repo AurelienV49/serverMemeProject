@@ -11,7 +11,9 @@ database_connection()
     .then((_) => {
         server.listen(PORT, () => {
             if (process.env.NODE_ENV === 'production') {
-                console.log("\x1b[32m", `✔    2) Successful server start on port             ✔`);
+                console.log("\x1b[32m", `✔    2) Successful server start on production             ✔`);
+            } else {
+                console.log("\x1b[32m", `✔    2) Successful server start on local and port ${PORT} ✔`);
             }
         });
     }).catch((error) => {
