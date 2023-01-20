@@ -1,22 +1,26 @@
-# Projet web mobile
+# Web services project
 
-## Backend - Serveur - API REST
+## Backend - Server - REST API
 
-Cette application permet de générer les échanges de données pour la génération de mèmes humoristiques.
-On a également la possibilité de mettre des textes personnalisés ainsi que de s'envoyer par email les mèmes réalisés.
+This application makes it possible to generate data exchanges for the generation of humorous memes.
+We also have the possibility to put personalized texts as well as to send each other by email the memes made.
 
-L'application permet de créer des utilisateurs, de se loguer et de se déloguer.
+The application allows you to create users, log in and log out.
 
 ### Development
 
-Client réalisé en Javascript avec NoddJS.
-Le server a été déployé sur Render : https://meme-project-server-ava.onrender.com
+Client made in Javascript with Node JS.
+The server has been deployed to Render : https://meme-project-server-ava.onrender.com
 
-Utilise plusieurs API :
+Uses several APIs:
 
-- récupération des mèmes humoristiques : https://imgflip.com/
-- envoie des mêmes par email avec  : https://sendgrid.com/
-- la persistance des données est réalisée avec une base de données MongoDB :https://cloud.mongodb.com/
+- recovery of humorous memes : https://imgflip.com/
+- send the same by email with  : https://sendgrid.com/
+- data persistence is performed with a MongoDB database :https://cloud.mongodb.com/
+
+# Run project
+
+npm start
 
 ### 2022/2023
 
