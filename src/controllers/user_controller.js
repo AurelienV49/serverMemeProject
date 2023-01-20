@@ -18,8 +18,6 @@ async function verify(token, req, res) {
     const payload = ticket.getPayload();
 //  const userid = payload.sub;
 
-    console.log(payload);
-
     User.findOne({email: payload.email})
         .then((user) => {
             if (!user) {
@@ -62,46 +60,35 @@ async function verify(token, req, res) {
 }
 
 exports.getUserList = (req, res) => {
-    console.log('Méthode getUserList');
-
     User.find()
         .then((list) => {
             l.i(`getUserList from ${req.headers.email}`);
             res.status(200).json(list);
         })
         .catch((err) => {
-            console.log(err);
             l.e(`getUserList from ${req.headers.email}: NOT FOUND`);
             res.status(404).json({message: 'NOT FOUND'});
         })
 }
 
 exports.getUser = (req, res) => {
-    console.log('Méthode getUser', req.params);
     User.findById(req.params.id)
         .then((user) => {
             l.i(`getUser from ${req.headers.email}`);
             res.status(200).json(user)
         })
         .catch((err) => {
-            console.log(err);
             l.e(`getUser from ${req.headers.email}: NOT FOUND`);
             res.status(404).json({message: 'NOT FOUND'});
         })
 }
 
 exports.createUser = async (req, res) => {
-    console.log('Server/user_controller/createUser/userExist : ', req.body)
-
     const userExist = await User.find({email: req.body.email});
 
-    console.log('Server/user_controller/createUser/userExist : ' + userExist + ', userExist.length = ' + userExist.length)
-
     if (userExist.length > 0) {
-        console.log('server createUser > 0')
         res.status(409).end({message: "User already exists"});
     } else {
-        console.log('server createUser <= 0')
         bcrypt.hash(req.body.password, 10)
             .then((hash) => {
                 let user = new User({
@@ -133,11 +120,9 @@ exports.createUser = async (req, res) => {
 }
 
 exports.login = (req, res) => {
-    console.log('Server/login/body: ', req.body);
     let token = req.body.token;
 
     if (token) {
-        console.log('Server/login/if(token): ', token);
         verify(token, req, res).catch(() => {
             l.e(`login/token from ${req.body.email}`);
             console.error
@@ -145,16 +130,12 @@ exports.login = (req, res) => {
     } else {
         User.findOne({email: req.body.email})
             .then((user) => {
-                console.log('Server/login/body/then user req.body: ', user);
                 if (!user) {
-                    console.log('Server/login/body/then user/if(!user): ', user);
                     l.e(`login from ${req.body.email}: USER RESULT NULL`);
                     res.status(404).json({message: 'USER RESULT NULL'})
                 } else {
-                    console.log('req.body.password: ' + req.body.password + ', user.password: ' + user.password + ', process.env.BRCYPTE_SECRET_TOKEN_KEY: ' + process.env.BRCYPTE_SECRET_TOKEN_KEY)
                     bcrypt.compare(req.body.password, user.password)
                         .then((valid) => {
-                            console.log('comparaison password valid : ', valid)
                             if (!valid) {
                                 l.e(`login from ${req.body.email}: API REST ERROR: COMPARISON FAILED`);
                                 res.status(500).json({message: 'API REST ERROR: COMPARISON FAILED'})
@@ -163,7 +144,6 @@ exports.login = (req, res) => {
                                 const token = jwt.sign(
                                     {userId: user._id}, process.env.BRCYPTE_SECRET_TOKEN_KEY, {expiresIn: '120s'});
                                 user.password = '';
-                                console.log('Token avant res.status 200 : ', token)
                                 res.status(200).json({
                                     token: token,
                                     user: user
@@ -217,8 +197,6 @@ exports.sendpicture = (req, res) => {
 }
 
 exports.updateUser = (req, res) => {
-    console.log('Méthode updateUser ' + req.params.id, req.body);
-
     User.findById(req.params.id)
         .then((obj) => {
             req.body.modificationDate = new Date();
@@ -239,8 +217,6 @@ exports.updateUser = (req, res) => {
 }
 
 exports.deleteUser = (req, res) => {
-    console.log('Méthode deleteUser ', req.params.id);
-
     User.findByIdAndDelete(req.params.id)
         .then((result) => {
             if (result) {

@@ -6,29 +6,21 @@ const router = express.Router();
 const axios = require('axios');
 
 exports.getMeme = (req, res, next) => {
-    console.log('getMeme: ', req.params.id);
-
     CreateMemeModel.findById(req.params.id)
         .then((obj) => {
             res.status(200).json(obj)
         })
         .catch((err) => {
-            console.log(err);
             res.status(404).json({message: 'NOT FOUND'});
         })
 }
 
 exports.getMemesUserHistory = (req, res, next) => {
-    console.log('getMemesUserHistory: ');
-
     CreateMemeModel.find({'idUser': req.params.id})
         .then((list) => {
-            console.log('+-*/ server: OK ')
             res.status(200).json(list)
         })
         .catch((err) => {
-            console.log('+-*/ server: erreur ')
-            console.log(err);
             res.status(404).json({message: 'NOT FOUND'});
         })
 }
@@ -38,24 +30,14 @@ exports.getMemesFromImgFlip = (req, res, next) => {
         .then((resp) => {
             res.status(200).json(resp.data.data.memes);
         }).catch(function (error) {
-        console.log(error);
         res.status(400).json({message: "Server: error fetch 'https://api.imgflip.com/get_memes'"});
     })
 }
 
 exports.createMeme = (req, res, next) => {
     let req_body = req.body;
-
-    console.log('<---------------------------------------');
-    console.log('Server: createMeme: req_body[\'data\'] : ', req_body['data']);
-    console.log(' --------------------------------------->');
-
     axios.post(req_body.data.urlToGenerateMeme)
-        /*.then(response =>
-            response.json()
-        )*/
         .then(data => {
-            console.log('Server: createMeme data.data = ', data.data);
             return data.data;
         })
         .then(async data => {
@@ -76,7 +58,6 @@ exports.createMeme = (req, res, next) => {
                 })
                 return await _createMemeModelToSave.save()
                     .then(async (saved) => {
-                        console.log(`Server: record into DB ok : ${saved}`);
                         res.status(200).json({
                             idUser: req_body.data.user_id,
                             urlToRetriveMeme: data['url'],
@@ -106,8 +87,6 @@ exports.createMeme = (req, res, next) => {
 }
 
 exports.updateMeme = (req, res, next) => {
-    console.log('updateMeme: id = ' + req.params.id, req.body);
-
     CreateMemeModel.findById(req.params.id)
         .then((obj) => {
             req.body.modificationDate = new Date();
@@ -125,20 +104,15 @@ exports.updateMeme = (req, res, next) => {
 }
 
 exports.deleteMeme = (req, res, next) => {
-    console.log('server: ---------------- deleteMeme : id = ', req.params.id);
-
     CreateMemeModel.findByIdAndDelete(req.params.id)
         .then((result) => {
             if (result) {
-                console.log('server: ---------------- deleteMeme ok');
                 res.status(200).json(result)
             } else {
-                console.log('server: ---------------- deleteMeme failed');
                 res.status(500).json({message: 'ALREADY DELETED'})
             }
         })
         .catch((err) => {
-                console.log('server: ---------------- deleteMeme failed not found');
                 res.status(400).json({message: 'NOT FOUND', error: err})
             }
         )
